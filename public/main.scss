@@ -1,0 +1,167 @@
+@import "_mixin.scss";
+
+/*Mixins
+flex-assign
+grid-assign
+bg-center
+vertical-center
+abs-pos
+*/
+html {
+    min-height: 1400px;
+    background-color: #e4e9fd;
+    background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+}
+
+* {
+    @include box-sizing(border-box);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100svh;
+    height: 100svh;
+    @include flex-assign(column, space-between, center);
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+header {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 3rem;
+    .navbar {
+        padding: 1.5rem;
+        color: #8a6eba;
+        .nav-list {
+            @include flex-assign(row, space-evenly, center);
+            margin: 0;
+            padding: 0;
+            /*Responsiveness*/
+            @include screen-type(desktop) {
+                @include flex-assign(row, start, center);
+                column-gap: 2rem;
+                font-size: 1.2rem;
+            }
+            .nav-item {
+                list-style: none;
+                a {
+                    text-decoration: none;
+                    margin-left: 0.8rem;
+                }
+                i{
+                }
+            }
+        }
+    }
+}
+
+main {
+    height: 100%;
+    @include flex-assign(column, start, center);
+
+    .title-container {
+        /*Positioning*/
+        margin-bottom: 3rem;
+        border-radius: 10px;
+        padding: 0.6rem 1.2rem;
+        width: 95%;
+        text-align: center;
+        /* Style*/
+        background-color: #a683e3;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px;
+
+        /*Responsiveness*/
+        @include screen-type(desktop){
+            padding: 0.6rem 5rem;
+            width: 100%;
+            h1{
+                font-size: 3rem;
+                width: 100%;
+            }
+        }
+    }
+
+    .todo {
+        /*Positioning*/
+        width: 95%;
+        /*Style*/
+        border-radius: 10px;
+        font-size: 1.2rem;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px;
+
+        /*Responsiveness*/
+        @include screen-type(desktop){
+            width: 100%;
+            font-size: 1.5rem;
+        }
+        .todo-item {
+            padding: 1.2rem;
+            @include flex-assign(row, start, center);
+
+            input[type="checkbox"] {
+                margin-right: 3rem;
+                /*Responsiveness*/
+                @include screen-type(desktop){
+                    transform: scale(1.2);
+                }
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 1rem;
+                text-align: center;
+                border: none;
+                font-size: 1.1rem;
+
+                &:focus {
+                    border-bottom: 2px solid #a683e3;
+                    outline: hidden;
+                }
+
+                &:focus-visible {
+                    outline: hidden;
+                    outline-width: 0;
+                }
+
+                &::placeholder {
+                    font-weight: lighter;
+                    color: rgba(128, 128, 128, 0.297);
+                    /*Responsiveness*/
+                    @include screen-type(desktop){
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+            button[type="submit"] {
+                border: none;
+                border-radius: 50%;
+                background-color: #a683e3;
+                padding: 0.7rem 1rem;
+                font-size: 1.2rem;
+                color: white;
+                /*Responsiveness*/
+                @include screen-type(desktop){
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+    .cross {
+        text-decoration: line-through;
+    }
+}
+footer{
+    align-self: start;
+    margin: 2rem;
+}

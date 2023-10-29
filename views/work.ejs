@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="title-container">
+        <h1>
+            Work List
+        </h1>
+    </div>
+    <div class="todo">
+        <% if(locals.todoElementsWork) { %>
+            <% todoElementsWork.forEach(element =>{ %>
+                <%- element.htmlContent %>  
+            <% }) %>
+        <% } %>
+
+        <form action="/" method="post" class="todo-item">
+            <input type="text" name="newTask" id="" placeholder="New Item">
+            <button type="submit" name="list" value="work">+</button>
+        </form>
+    </div>
+        <script>
+            const cbs = document.querySelectorAll("input[type=checkbox]")
+            cbs.forEach(element =>{
+                element.addEventListener("click",function () {
+                    const text = this.nextElementSibling;
+                    if(text){
+                        text.classList.toggle("cross");
+                    }
+                  });
+            });
+        </script>
+    <%- include("partials/footer.ejs") %>
+

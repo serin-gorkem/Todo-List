@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="title-container">
+        <h1>
+            <!-- Gets the current day by month and day -->
+            <%= new Date().toLocaleString('en-us', { weekday: 'long' }) %>,
+                <%= new Date().toLocaleString('default', { month: 'long' }) %>
+                    <%= new Date().getDate()%>
+        </h1>
+    </div>
+    <!-- When the post request happened, it creates a task for the to do list.
+        In the app.post we are storing every html element in the todoElements array and using it in here to display.     -->
+    <div class="todo">
+        <% if(locals.todoElements) { %>
+            <% todoElements.forEach(element =>{ %>
+                <%- element.htmlContent %>  
+            <% }) %>
+        <% } %>
+
+        <form action="/" method="post" class="todo-item">
+            <input type="text" name="newTask" placeholder="New Item">
+            <!-- The value variable used for separating the daily to do list from the work.-->
+            <button type="submit" name="list" value="<%= new Date().toLocaleString('en-us', { weekday: 'long' }) %>">+</button>
+        </form>
+
+    </div>
+        <script>
+            /* The functionality of completing a task.*/
+            const cbs = document.querySelectorAll("input[type=checkbox]")
+            cbs.forEach(element =>{
+                element.addEventListener("click",function () {
+                    /* Get the next element when clicked on a checkbox*/
+                    const text = this.nextElementSibling;
+                    if(text){
+                        text.classList.toggle("cross");
+                    }
+                  });
+            });
+        </script>
+    <%- include("partials/footer.ejs") %>
+

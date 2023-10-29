@@ -1,0 +1,54 @@
+@mixin screen-type($type) {
+    @if $type == mb-vert {
+        @media (orientation: landscape) and (max-height: 40rem) {
+            @content;
+        }
+    } @else if $type == desktop {
+        @media (min-width: 65rem) {
+            @content;
+        }
+    } @else if $type == tablet{
+        @media only screen and (min-width: 40rem) {
+            @content;
+        }
+    }
+}
+@mixin flex-assign($direction, $justify-content, $align-item) {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    align-items: $align-item;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+}
+@mixin grid-assign($column-count, $row-count) {
+    display: grid;
+    grid-template-columns: $column-count;
+    grid-template-rows: $row-count;
+}
+@mixin bg-center($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+@mixin vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+@mixin abs-pos($top, $right, $bottom, $left) {
+    position: relative;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+@mixin box-sizing($box-model) {
+    -webkit-box-sizing: $box-model; // Safari <= 5
+       -moz-box-sizing: $box-model; // Firefox <= 19
+            box-sizing: $box-model;
+  }

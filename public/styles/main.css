@@ -1,0 +1,191 @@
+/*Mixins
+flex-assign
+grid-assign
+bg-center
+vertical-center
+abs-pos
+*/
+html {
+  min-height: 1400px;
+  background-color: #e4e9fd;
+  background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+header {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+header .navbar {
+  padding: 1.5rem;
+  color: #8a6eba;
+}
+header .navbar .nav-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  /*Responsiveness*/
+}
+@media (min-width: 65rem) {
+  header .navbar .nav-list {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: start;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+    font-size: 1.2rem;
+  }
+}
+header .navbar .nav-list .nav-item {
+  list-style: none;
+}
+header .navbar .nav-list .nav-item a {
+  text-decoration: none;
+  margin-left: 0.8rem;
+}
+main {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+}
+main .title-container {
+  /*Positioning*/
+  margin-bottom: 3rem;
+  border-radius: 10px;
+  padding: 0.6rem 1.2rem;
+  width: 95%;
+  text-align: center;
+  /* Style*/
+  background-color: #a683e3;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px;
+  /*Responsiveness*/
+}
+@media (min-width: 65rem) {
+  main .title-container {
+    padding: 0.6rem 5rem;
+    width: 100%;
+  }
+  main .title-container h1 {
+    font-size: 3rem;
+    width: 100%;
+  }
+}
+main .todo {
+  /*Positioning*/
+  width: 95%;
+  /*Style*/
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px;
+  /*Responsiveness*/
+}
+@media (min-width: 65rem) {
+  main .todo {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+}
+main .todo .todo-item {
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: start;
+}
+main .todo .todo-item input[type=checkbox] {
+  margin-right: 3rem;
+  /*Responsiveness*/
+}
+@media (min-width: 65rem) {
+  main .todo .todo-item input[type=checkbox] {
+    transform: scale(1.2);
+  }
+}
+main .todo .todo-item input[type=text] {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  border: none;
+  font-size: 1.1rem;
+}
+main .todo .todo-item input[type=text]:focus {
+  border-bottom: 2px solid #a683e3;
+  outline: hidden;
+}
+main .todo .todo-item input[type=text]:focus-visible {
+  outline: hidden;
+  outline-width: 0;
+}
+main .todo .todo-item input[type=text]::-moz-placeholder {
+  font-weight: lighter;
+  color: rgba(128, 128, 128, 0.297);
+  /*Responsiveness*/
+}
+main .todo .todo-item input[type=text]::placeholder {
+  font-weight: lighter;
+  color: rgba(128, 128, 128, 0.297);
+  /*Responsiveness*/
+}
+@media (min-width: 65rem) {
+  main .todo .todo-item input[type=text]::-moz-placeholder {
+    font-size: 1.5rem;
+  }
+  main .todo .todo-item input[type=text]::placeholder {
+    font-size: 1.5rem;
+  }
+}
+main .todo .todo-item button[type=submit] {
+  border: none;
+  border-radius: 50%;
+  background-color: #a683e3;
+  padding: 0.7rem 1rem;
+  font-size: 1.2rem;
+  color: white;
+  /*Responsiveness*/
+}
+@media (min-width: 65rem) {
+  main .todo .todo-item button[type=submit] {
+    transform: scale(1.3);
+  }
+}
+main .cross {
+  text-decoration: line-through;
+}
+
+footer {
+  align-self: start;
+  margin: 2rem;
+}/*# sourceMappingURL=main.css.map */
